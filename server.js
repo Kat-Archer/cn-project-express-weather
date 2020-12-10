@@ -3,6 +3,7 @@ const app = express();
 const path = require('path');
 const hbs = require('hbs');
 const axios = require('axios');
+const dotenv = require('dotenv').config();
 
 //Finding the views folder directory
 const viewsPath = path.join(__dirname, '/views');
@@ -26,21 +27,23 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
 app.get("/", async (req, res) => {
-    // console.log(req.query.city);
-    // console.log(req.query.country);
-    const cityName = "Nottingham";
-    const countryCode = "UK";
+    console.log(req.query.city);
+    console.log(req.query.country);
+    const cityName = req.query.city;
+    const countryCode = req.query.country;
+    const url = process.env.APPID;
     try {
-        const weather = await axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${cityName},${countryCode}&units=metric&appid=b63099f2370ea84802dcf896425ed69e`);
+        const weather = await axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${cityName},${countryCode}&units=metric&appid=${url}`);
         console.log(weather.data);
         res.render("index", {
             temp: weather.data.main.temp,
             feelsLike: weather.data.main["feels_like"],
             weatherType: weather.data.weather[0].main,
-            place: weather.data.name
+            place: weather.data.name,
+            icon: weather.data.weather[0].icon
         });
     } catch (error) {
-        res.render("info");
+        res.render("error");
     }
 });
 

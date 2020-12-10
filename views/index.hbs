@@ -7,7 +7,7 @@
     <title>Weather</title>
 </head>
 <body>
-    <form action="/info" method="GET" >
+    <form action="/" method="GET" >
         <input required type="text" name="city" />
         <input required type="text" name="country"/>
         <button type="submit" >Submit</button>
@@ -17,7 +17,7 @@
     <h1>{{temp}}c</h1>
     <h4>although it feels like {{feelsLike}}c</h4>
     <h6>{{weatherType}}</h6>
-    <img />
+    <img src="http://openweathermap.org/img/wn/{{icon}}@2x.png" id="pic" />
 
     <script src="/js/main.js"></script>
 </body>
