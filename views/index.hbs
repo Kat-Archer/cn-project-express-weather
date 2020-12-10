@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Weather</title>
+</head>
+<body>
+    <form action="/info" method="GET" >
+        <input required type="text" name="city" />
+        <input required type="text" name="country"/>
+        <button type="submit" >Submit</button>
+    </form>
+
+    <h3>The weather in {{place}} now is:</h3>
+    <h1>{{temp}}c</h1>
+    <h4>although it feels like {{feelsLike}}c</h4>
+    <h6>{{weatherType}}</h6>
+    <img />
+
+    <script src="/js/main.js"></script>
+</body>
+</html>
