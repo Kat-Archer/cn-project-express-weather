@@ -3,9 +3,20 @@ body {
 }
 
 .main {
-    background-color: skyblue;
+    background-color: rgb(233, 238, 240);
     margin: 3rem;
     color: midnightblue;
+}
+
+#mainContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#weather {
+    /* width: 100rem;
+    height: 50rem; */
 }
 
 .output {
@@ -16,6 +27,14 @@ body {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-end;
+}
+
+#country {
+    padding-left: 2rem;
+}
+
+#city, #country {
+    padding-right: 0.5rem;
 }
 
 #feels {
@@ -37,11 +56,17 @@ body {
     border: solid 2px black;
     background-color: seagreen;
     padding: 5px;
-    width: 12rem;
+    width: 15rem;
+    height: 18rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
+    font-size: 0.9rem
+}
+
+.date {
+    text-align: center;
 }
 
 .imageBox {
@@ -62,10 +87,6 @@ form {
     align-items: center;
     justify-content: flex-start;
     flex-wrap: wrap;
-}
-
-#country {
-    padding-left: 2rem;
 }
 
 button {
