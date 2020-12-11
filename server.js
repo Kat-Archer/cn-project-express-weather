@@ -37,9 +37,11 @@ app.get("/displayWeather", async (req, res) => {
     const url = process.env.APPID;
     try {
         const weather = await axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${cityName},${countryCode}&units=metric&appid=${url}`);
+        let roundTemp = Math.round(weather.data.main.temp);
+        let roundFeels = Math.round(weather.data.main["feels_like"]);
         res.render("index", {
-            temp: weather.data.main.temp,
-            feelsLike: weather.data.main["feels_like"],
+            temp: roundTemp,
+            feelsLike: roundFeels,
             weatherType: weather.data.weather[0].main,
             place: weather.data.name,
             icon: weather.data.weather[0].icon
@@ -51,38 +53,57 @@ app.get("/displayWeather", async (req, res) => {
 
 app.get("/nottingham", async (req, res) => {
     const url = process.env.APPID;
-    console.log(url);
     const forecast = await axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=52.9548&lon=-1.1581&units=metric&appid=${url}`);
-    console.log(forecast)
+    let mil1 = new Date(forecast.data.daily[0].dt * 1000);
+    let date1 = mil1.toLocaleString("en-GB", {dateStyle: "full"});
+    let mil2 = new Date(forecast.data.daily[1].dt * 1000);
+    let date2 = mil2.toLocaleString("en-GB", {dateStyle: "full"});
+    let mil3 = new Date(forecast.data.daily[2].dt * 1000);
+    let date3 = mil3.toLocaleString("en-GB", {dateStyle: "full"});
+    let mil4 = new Date(forecast.data.daily[3].dt * 1000);
+    let date4 = mil4.toLocaleString("en-GB", {dateStyle: "full"});
+    let mil5 = new Date(forecast.data.daily[4].dt * 1000);
+    let date5 = mil5.toLocaleString("en-GB", {dateStyle: "full"});
+    let mil6 = new Date(forecast.data.daily[5].dt * 1000);
+    let date6 = mil6.toLocaleString("en-GB", {dateStyle: "full"});
+    let mil7 = new Date(forecast.data.daily[6].dt * 1000);
+    let date7 = mil7.toLocaleString("en-GB", {dateStyle: "full"});
+    let temp1 = Math.round(forecast.data.daily[0].temp.day);
+    let temp2 = Math.round(forecast.data.daily[1].temp.day);
+    let temp3 = Math.round(forecast.data.daily[2].temp.day);
+    let temp4 = Math.round(forecast.data.daily[3].temp.day);
+    let temp5 = Math.round(forecast.data.daily[4].temp.day);
+    let temp6 = Math.round(forecast.data.daily[5].temp.day);
+    let temp7 = Math.round(forecast.data.daily[6].temp.day);
     res.render("nottingham", {
-        fDate1: forecast.data.daily[1].dt,
-        fTemp1: forecast.data.daily[1].temp.day,
-        fWeatherType1: forecast.data.daily[1].weather[0].main,
-        fIcon1: forecast.data.daily[1].weather[0].icon,
-        fDate2: forecast.data.daily[2].dt,
-        fTemp2: forecast.data.daily[2].temp.day,
-        fWeatherType2: forecast.data.daily[2].weather[0].main,
-        fIcon2: forecast.data.daily[2].weather[0].icon,
-        fDate3: forecast.data.daily[3].dt,
-        fTemp3: forecast.data.daily[3].temp.day,
-        fWeatherType3: forecast.data.daily[3].weather[0].main,
-        fIcon3: forecast.data.daily[3].weather[0].icon,
-        fDate4: forecast.data.daily[4].dt,
-        fTemp4: forecast.data.daily[4].temp.day,
-        fWeatherType4: forecast.data.daily[4].weather[0].main,
-        fIcon4: forecast.data.daily[4].weather[0].icon,
-        fDate5: forecast.data.daily[5].dt,
-        fTemp5: forecast.data.daily[5].temp.day,
-        fWeatherType5: forecast.data.daily[5].weather[0].main,
-        fIcon5: forecast.data.daily[5].weather[0].icon,
-        fDate6: forecast.data.daily[6].dt,
-        fTemp6: forecast.data.daily[6].temp.day,
-        fWeatherType6: forecast.data.daily[6].weather[0].main,
-        fIcon6: forecast.data.daily[6].weather[0].icon,
-        fDate7: forecast.data.daily[7].dt,
-        fTemp7: forecast.data.daily[7].temp.day,
-        fWeatherType7: forecast.data.daily[7].weather[0].main,
-        fIcon7: forecast.data.daily[7].weather[0].icon,
+        fDate1: date1,
+        fTemp1: temp1,
+        fWeatherType1: forecast.data.daily[0].weather[0].main,
+        fIcon1: forecast.data.daily[0].weather[0].icon,
+        fDate2: date2,
+        fTemp2: temp2,
+        fWeatherType2: forecast.data.daily[1].weather[0].main,
+        fIcon2: forecast.data.daily[1].weather[0].icon,
+        fDate3: date3,
+        fTemp3: temp3,
+        fWeatherType3: forecast.data.daily[2].weather[0].main,
+        fIcon3: forecast.data.daily[2].weather[0].icon,
+        fDate4: date4,
+        fTemp4: temp4,
+        fWeatherType4: forecast.data.daily[3].weather[0].main,
+        fIcon4: forecast.data.daily[3].weather[0].icon,
+        fDate5: date5,
+        fTemp5: temp5,
+        fWeatherType5: forecast.data.daily[4].weather[0].main,
+        fIcon5: forecast.data.daily[4].weather[0].icon,
+        fDate6: date6,
+        fTemp6: temp6,
+        fWeatherType6: forecast.data.daily[5].weather[0].main,
+        fIcon6: forecast.data.daily[5].weather[0].icon,
+        fDate7: date7,
+        fTemp7: temp7,
+        fWeatherType7: forecast.data.daily[6].weather[0].main,
+        fIcon7: forecast.data.daily[6].weather[0].icon,
     });
 })
 
