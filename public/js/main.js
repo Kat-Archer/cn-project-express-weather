@@ -1,34 +1,27 @@
 console.log("Inside JavaScript front-end");
 
-let code = document.getElementById("date");
-console.log(code);
-code *= 1000;
-console.log(code);
-let date = new Date();
-console.log(date);
-date.toLocaleString();
-console.log(date);
 
+const instructionEl = document.getElementById("instruction");instruction
+const placeEl = document.getElementById("place");
+const tempEl = document.getElementById("temp");
+const feelsEl = document.getElementById("feels");
+const typeEl = document.getElementById("type");
+const picEl = document.getElementById("pic");
+const temp = tempEl.textContent;
+console.log(temp)
 
-// const instruction = document.getElementById("instruction");instruction
-// const place = document.getElementById("place");
-// const temp = document.getElementById("temp");
-// const feels = document.getElementById("feels");
-// const type = document.getElementById("type");
-// const pic = document.getElementById("pic");
-
-// if (type === undefined) {
-//     instruction.style.visibility = "visible";
-//     place.style.visibility = "hidden";
-//     temp.style.visibility = "hidden";
-//     feels.style.visibility = "hidden";
-//     type.style.visibility = "hidden";
-//     pic.style.visibility = "hidden";
-// } else {
-//     instruction.style.visibility = "hidden";
-//     place.style.visibility = "visible";
-//     temp.style.visibility = "visible";
-//     feels.style.visibility = "visible";
-//     type.style.visibility = "visible";
-//     pic.style.visibility = "visible";
-// }
+if (temp === "°c") {
+    console.log("true");
+    placeEl.style.visibility = "hidden";
+    tempEl.style.visibility = "hidden";
+    feelsEl.style.visibility = "hidden";
+    typeEl.style.visibility = "hidden";
+    picEl.style.visibility = "hidden";
+} else {
+    console.log("false");
+    placeEl.style.visibility = "visible";
+    tempEl.style.visibility = "visible";
+    feelsEl.style.visibility = "visible";
+    typeEl.style.visibility = "visible";
+    picEl.style.visibility = "visible";
+}

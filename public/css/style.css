@@ -3,8 +3,8 @@ body {
 }
 
 .main {
-    background-color: rgb(233, 238, 240);
-    margin: 3rem;
+    background-color: rgb(206, 235, 247);
+    margin: 6rem 3rem 3rem 3rem;
     color: midnightblue;
 }
 
@@ -14,13 +14,9 @@ body {
     justify-content: space-between;
 }
 
-#weather {
-    /* width: 100rem;
-    height: 50rem; */
-}
-
 .output {
-    margin: 2rem;
+    margin: 4rem;
+
 }
 
 .tempBox {
@@ -35,10 +31,37 @@ body {
 
 #city, #country {
     padding-right: 0.5rem;
+    font-weight: bold;
+}
+
+#instruction {
+    margin-top: 2rem;
+    font-size: 1.5rem;
+}
+
+#place {
+    font-size: 2.5rem;
+}
+
+#temp {
+    font-size: 3rem;
 }
 
 #feels {
     padding-left: 1rem;
+    font-size: 1.5rem;
+}
+
+#type {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+#pic {
+    background-color: steelblue;
+    border-radius: 50px;
+    margin-top: 1rem;
 }
 
 .nottsBody {
