@@ -3,22 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
     <title>Weather</title>
 </head>
-<body>
-    <form action="/" method="GET" >
-        <input required type="text" name="city" />
-        <input required type="text" name="country"/>
-        <button type="submit" >Submit</button>
-    </form>
+<body class="main">
+    <div class="form" >
+        <form action="/displayWeather" method="GET" >
+            <p>City: </p><input required type="text" name="city" />
+            <p id="country">Country Code: </p><input required type="text" name="country" />
+            <button type="submit" >Submit</button>
+        </form>
+    </div>
 
-    <h3>The weather in {{place}} now is:</h3>
-    <h1>{{temp}}c</h1>
-    <h4>although it feels like {{feelsLike}}c</h4>
-    <h6>{{weatherType}}</h6>
-    <img src="http://openweathermap.org/img/wn/{{icon}}@2x.png" id="pic" />
-
+    <h1 id="instruction" >Enter a City and Country to see the Weather</h1>
+    <div class="output">
+        <h3 id="place" >The weather in {{place}} now is:</h3>
+        <div class="tempBox">
+            <h1 id="temp" >{{temp}}°c</h1>
+            <h4 id="feels" >although it feels like {{feelsLike}}°c</h4>
+        </div>
+        <h2 id="type">Weather Type: {{weatherType}}</h2>
+        <img id="pic" src="http://openweathermap.org/img/wn/{{icon}}@2x.png" id="pic" />
+    </div>
     <script src="/js/main.js"></script>
 </body>
 </html>
